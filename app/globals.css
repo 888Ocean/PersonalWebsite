@@ -3,7 +3,7 @@
   --ink: #12171a;
   --mute: #5c676b;
   --line: #d8d2c8;
-  /* Reserved for a later cold open. Unused on this shell. */
+  /* deep: cold-open field. beam: cold-open top light. gill and mech unused. */
   --deep: #0b1c24;
   --beam: #7eb8b0;
   --gill: #e07a5f;
@@ -336,6 +336,129 @@ p {
     min-height: 0;
     justify-content: flex-start;
     padding-top: 48px;
+  }
+}
+
+.cold-open {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background-color: var(--deep);
+  color: var(--bg);
+  animation: cold-field 4.4s linear forwards;
+}
+
+.cold-open::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 42vw;
+  height: 28vh;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at 50% 0%, var(--beam), transparent 70%);
+  opacity: 0.5;
+  pointer-events: none;
+  animation: cold-beam 4.4s linear forwards;
+}
+
+.cold-figure {
+  width: min(220px, 40vw);
+  animation: cold-float 4.4s linear forwards;
+}
+
+.cold-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.eyes-open {
+  opacity: 0;
+  animation: cold-eyes 4.4s linear forwards;
+}
+
+.cold-mark {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+  color: var(--bg);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+}
+
+.cold-skip {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  z-index: 2;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--bg);
+  background: transparent;
+  color: var(--bg);
+  cursor: pointer;
+  letter-spacing: 0.08em;
+}
+
+@keyframes cold-field {
+  0%,
+  78% {
+    background-color: var(--deep);
+  }
+  78.1%,
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes cold-beam {
+  0%,
+  78% {
+    opacity: 0.5;
+  }
+  78.1%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes cold-float {
+  0% {
+    opacity: 0;
+    transform: translateY(-14%) scale(0.7);
+  }
+  32% {
+    opacity: 1;
+    transform: translateY(0) scale(0.84);
+  }
+  59%,
+  74% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  78%,
+  100% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cold-eyes {
+  0%,
+  38% {
+    opacity: 0;
+  }
+  54%,
+  74% {
+    opacity: 1;
+  }
+  78%,
+  100% {
+    opacity: 0;
   }
 }
 
