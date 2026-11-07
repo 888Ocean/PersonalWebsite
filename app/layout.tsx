@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import PersonalMotion from "./components/PersonalMotion";
+import SiteFooter from "./components/SiteFooter";
+import SiteHeader from "./components/SiteHeader";
 import "./globals.css";
-import "./case-editor-adaptive.css";
 
 const barlow = localFont({
   src: [
@@ -21,14 +21,21 @@ const barlowCondensed = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Ocean — AI application developer and photographer",
-  description: "AI application projects, product thinking, and photography by Ocean.",
+  title: {
+    default: "[SiteName]",
+    template: "%s · [SiteName]",
+  },
+  description: "Ocean 的作品、照片与笔记。",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="zh-CN" data-scroll-behavior="smooth">
-      <body className={`${barlow.variable} ${barlowCondensed.variable}`}>{children}<PersonalMotion /></body>
+    <html lang="zh-CN">
+      <body className={`${barlow.variable} ${barlowCondensed.variable}`}>
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }

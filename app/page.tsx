@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
-import PersonalHome from "./components/PersonalHome";
-import { getProjectsForSite } from "./lib/projects";
+import Link from "next/link";
+import { mission, positioning } from "./archive-copy";
 
 export const metadata: Metadata = {
-  title: "Ocean — AI 应用开发与摄影",
-  description: "Ocean 的 AI 应用项目、产品实践与摄影故事。",
+  title: { absolute: "[SiteName]" },
+  description: "Ocean 的作品、照片与笔记。",
 };
 
-export const dynamic = "force-dynamic";
-
-export default async function Home() {
-  return <PersonalHome projects={await getProjectsForSite()} />;
+export default function Home() {
+  return (
+    <main className="shell land">
+      <p className="mission">{mission}</p>
+      <div>
+        <h1>Ocean</h1>
+        <p className="position">{positioning}</p>
+      </div>
+      <Link className="text-link" href="/work">
+        进入 Work
+      </Link>
+    </main>
+  );
 }
