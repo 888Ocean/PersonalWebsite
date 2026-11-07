@@ -1,12 +1,28 @@
 import type { Metadata } from "next";
-import ReelPhotographyIndex from "./ReelPhotographyIndex";
-import { photographyStories } from "./data";
+import { photoSlots } from "../archive-copy";
 
 export const metadata: Metadata = {
-  title: "Photo stories — Ocean",
-  description: "按故事与记忆编排的摄影档案，而不是传统摄影类型目录。",
+  title: "Photographs",
+  description: "摄影示意位置。",
 };
 
-export default function PhotographyPage() {
-  return <ReelPhotographyIndex stories={photographyStories} />;
+export default function PhotographsPage() {
+  return (
+    <main className="shell page">
+      <header className="page-intro">
+        <h1>Photographs</h1>
+        <p>六张照片的位置。画面还没换上，每一格都是示意。</p>
+      </header>
+      <div className="photo-grid">
+        {photoSlots.map((slot) => (
+          <figure key={slot.id} className="photo-slot">
+            <div className="photo-frame">示意</div>
+            <figcaption>
+              {slot.id} {slot.label} · 示意
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </main>
+  );
 }

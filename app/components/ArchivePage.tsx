@@ -22,7 +22,7 @@ export default function ArchivePage({ code, eyebrow, title, italic, description,
         <div className="archive-tide-line" aria-hidden="true"><i /><i /><i /></div>
       </section>
       {children}
-      <footer className="bright-footer"><span>Tidal Archive · {code}</span><span>Use the tide orb to navigate.</span></footer>
+      <footer className="bright-footer"><span>[SiteName] · {code}</span></footer>
     </main>
   );
 }

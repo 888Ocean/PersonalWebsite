@@ -259,7 +259,7 @@ export default function PhotographyStory({ story, nextStory }: PhotographyStoryP
       </Link>
 
       <footer className="photography-footer photography-footer--detail">
-        <span>Tidal Archive · 02 / REEF</span>
+        <span>[SiteName]</span>
         <Link href="/photography">Return to all stories</Link>
       </footer>
     </main>

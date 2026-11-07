@@ -256,7 +256,7 @@ export default function PhotographyIndex({ stories }: PhotographyIndexProps) {
       </section>
 
       <footer className="photography-footer">
-        <span>Tidal Archive · 02 / REEF</span>
+        <span>[SiteName]</span>
         <span>Story-led photography, collected slowly.</span>
       </footer>
     </main>
